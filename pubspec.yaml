@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.8
   sqflite: ^2.4.4  #permite usar sqlite en flutter
   path: ^1.9.1 # ayuda a construir correctamente la ruta del archivo de base de datos
+  path_provider: ^2.1.6
 
 dev_dependencies:
   flutter_test:
