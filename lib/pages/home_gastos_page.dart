@@ -1,7 +1,22 @@
 import 'package:flutter/material.dart';
+import 'package:gastosappg16/widgets/register_modal_widget.dart';
 
-class HomeGastosPage extends StatelessWidget {
-  const HomeGastosPage({super.key});
+class HomeGastosPage extends StatefulWidget {
+  HomeGastosPage({super.key});
+
+  @override
+  State<HomeGastosPage> createState() => _HomeGastosPageState();
+}
+
+class _HomeGastosPageState extends State<HomeGastosPage> {
+  void showRegisterModal() {
+    showModalBottomSheet(
+      context: context,
+      builder: (context) {
+        return RegisterModalWidget();
+      },
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -14,7 +29,7 @@ class HomeGastosPage extends StatelessWidget {
               children: [
                 GestureDetector(
                   onTap: () {
-                    print("tapeado");
+                    showRegisterModal();
                   },
                   child: Container(
                     color: Colors.black,
