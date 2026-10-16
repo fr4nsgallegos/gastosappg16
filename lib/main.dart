@@ -3,6 +3,7 @@ import 'package:flutter_localizations/flutter_localizations.dart';
 import 'package:gastosappg16/generated/l10n.dart';
 import 'package:gastosappg16/pages/home_gastos_page.dart';
 import 'package:gastosappg16/pages/home_page.dart';
+import 'package:gastosappg16/provider_example/pages/cart_page.dart';
 import 'package:gastosappg16/provider_example/pages/counter_page.dart';
 import 'package:gastosappg16/provider_example/pages/provider_page.dart';
 import 'package:gastosappg16/provider_example/providers/counter_provider.dart';
@@ -13,10 +14,7 @@ void main() {
   runApp(
     ChangeNotifierProvider(
       create: (context) => CounterProvider(),
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        home: CounterPage(),
-      ),
+      child: MaterialApp(debugShowCheckedModeBanner: false, home: CartPage()),
     ),
   );
 }
