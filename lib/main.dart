@@ -6,19 +6,60 @@ import 'package:gastosappg16/pages/home_page.dart';
 
 void main() {
   runApp(
-    MaterialApp(
+    // MaterialApp(
+    //   debugShowCheckedModeBanner: false,
+    //   home: HomeGastosPage(),
+
+    //   // Delegados de localización
+    //   localizationsDelegates: [
+    //     S.delegate,
+    //     GlobalMaterialLocalizations.delegate,
+    //     GlobalWidgetsLocalizations.delegate,
+    //     GlobalCupertinoLocalizations.delegate,
+    //   ],
+    //   // Los idiomas soportados por el app
+    //   supportedLocales: S.delegate.supportedLocales,
+    // ),
+    MyApp(),
+  );
+}
+
+class MyApp extends StatefulWidget {
+  const MyApp({super.key});
+
+  static void setLocale(BuildContext context, Locale locale) {
+    final state = context.findAncestorStateOfType<_MyAppState>();
+    state?.changeLocale(locale);
+  }
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
+  Locale? _locale;
+
+  void changeLocale(Locale locale) {
+    setState(() {
+      _locale = locale;
+    });
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: HomeGastosPage(),
-
+      locale: _locale,
       // Delegados de localización
       localizationsDelegates: [
         S.delegate,
         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
-        GlobalMaterialLocalizations.delegate,
+        GlobalCupertinoLocalizations.delegate,
       ],
       // Los idiomas soportados por el app
       supportedLocales: S.delegate.supportedLocales,
-    ),
-  );
+    );
+  }
 }

@@ -1,5 +1,6 @@
 {
     "welcome" : "Welcome",
-    "appTitle" : "Expense App"
+    "appTitle" : "Expense App",
+    "helloAlguien" : "Hi, {name}"
 
 }
