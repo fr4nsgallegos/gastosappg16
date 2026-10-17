@@ -5,6 +5,7 @@ import 'package:gastosappg16/pages/home_gastos_page.dart';
 import 'package:gastosappg16/pages/home_page.dart';
 import 'package:gastosappg16/provider_example/pages/cart_page.dart';
 import 'package:gastosappg16/provider_example/pages/counter_page.dart';
+import 'package:gastosappg16/provider_example/pages/products_page.dart';
 import 'package:gastosappg16/provider_example/pages/provider_page.dart';
 import 'package:gastosappg16/provider_example/providers/cart_provider.dart';
 import 'package:gastosappg16/provider_example/providers/counter_provider.dart';
@@ -15,7 +16,10 @@ void main() {
   runApp(
     ChangeNotifierProvider(
       create: (context) => CartProvider(),
-      child: MaterialApp(debugShowCheckedModeBanner: false, home: CartPage()),
+      child: MaterialApp(
+        debugShowCheckedModeBanner: false,
+        home: ProductsPage(),
+      ),
     ),
   );
 }

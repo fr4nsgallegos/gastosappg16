@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:gastosappg16/provider_example/providers/cart_provider.dart';
+import 'package:path/path.dart';
 import 'package:provider/provider.dart';
 
 class CartPage extends StatelessWidget {
@@ -32,10 +33,38 @@ class CartPage extends StatelessWidget {
                           title: Text(product.nombre),
                           subtitle: Text("S/ ${product.precio}"),
                           trailing: IconButton(
-                            onPressed: () {},
+                            onPressed: () {
+                              context.read<CartProvider>().removeProduct(
+                                product,
+                              );
+                            },
                             icon: Icon(Icons.remove),
                           ),
                         ),
+                      );
+                    },
+                  ),
+                ),
+
+                // Ejemplo con selector
+                Container(
+                  padding: EdgeInsets.all(32),
+                  width: double.infinity,
+                  alignment: Alignment.centerRight,
+                  // Ejempl0o normal
+                  // child: Text(
+                  //   "Total: S/${cartProvider.getTotalPrice().toStringAsFixed(2)}",
+                  //   style: TextStyle(fontSize: 24, fontWeight: .bold),
+                  // ),
+
+                  // Ejemplo con selector
+                  child: Selector<CartProvider, double>(
+                    selector: (context, cartProvider) =>
+                        cartProvider.getTotalPrice(),
+                    builder: (context, totalPrice, child) {
+                      return Text(
+                        "Total: S/${cartProvider.getTotalPrice().toStringAsFixed(2)}",
+                        style: TextStyle(fontSize: 24, fontWeight: .bold),
                       );
                     },
                   ),
