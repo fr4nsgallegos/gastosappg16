@@ -14,6 +14,7 @@ class CounterPage extends StatelessWidget {
         mainAxisAlignment: .end,
         children: [
           FloatingActionButton(
+            heroTag: "increment",
             onPressed: () {
               // context.read<CounterProvider>().increment();
               counterProvider.increment();
@@ -25,6 +26,8 @@ class CounterPage extends StatelessWidget {
           ),
           SizedBox(height: 12),
           FloatingActionButton(
+            heroTag: "decrement",
+
             onPressed: () {
               context.read<CounterProvider>().decrement();
             },
@@ -32,6 +35,8 @@ class CounterPage extends StatelessWidget {
           ),
           SizedBox(height: 12),
           FloatingActionButton(
+            heroTag: "refresh",
+
             onPressed: () {
               context.read<CounterProvider>().reset();
             },

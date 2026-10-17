@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:gastosappg16/models/product_model.dart';
 import 'package:gastosappg16/provider_example/pages/cart_page.dart';
+import 'package:gastosappg16/provider_example/pages/counter_page.dart';
 import 'package:gastosappg16/provider_example/providers/cart_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -22,6 +23,15 @@ class ProductsPage extends StatelessWidget {
       appBar: AppBar(
         title: Text("Productos"),
         actions: [
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => CounterPage()),
+              );
+            },
+            icon: Icon(Icons.format_list_numbered_rounded),
+          ),
           Stack(
             alignment: AlignmentGeometry.center,
             children: [
@@ -34,6 +44,7 @@ class ProductsPage extends StatelessWidget {
                 },
                 icon: Icon(Icons.shopping_cart),
               ),
+
               if (cartProvider.items.length > 0)
                 Positioned(
                   right: 6,

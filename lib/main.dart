@@ -12,13 +12,29 @@ import 'package:gastosappg16/provider_example/providers/counter_provider.dart';
 import 'package:provider/provider.dart';
 
 // EJEMPLO PARA PROVIDER 1
+// void main() {
+//   runApp(
+//     ChangeNotifierProvider(
+//       create: (context) => CartProvider(),
+//       child: MaterialApp(
+//         debugShowCheckedModeBanner: false,
+//         home: ProductsPage(),
+//       ),
+//     ),
+//   );
+// }
+
+// Ejemplo con multiples providers
 void main() {
   runApp(
-    ChangeNotifierProvider(
-      create: (context) => CartProvider(),
+    MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => CounterProvider()),
+        ChangeNotifierProvider(create: (context) => CartProvider()),
+      ],
       child: MaterialApp(
-        debugShowCheckedModeBanner: false,
         home: ProductsPage(),
+        debugShowCheckedModeBanner: false,
       ),
     ),
   );
